@@ -67,10 +67,10 @@ button {
 	width: 100%;
 }
 
-#center {
+.center {
 	text-align: center;
 }
 
-#center:hover {
+.center:hover {
 	text-decoration: underline;
 }
