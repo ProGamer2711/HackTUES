@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Audiowide");
 
 .rocket {
-	color: #ffffff;
+	
 	font-family: "Biome", sans-serif;
 }
 
 * {
 	font-family: "Audiowide", sans-serif;
+    color: white;
 }
 
 body {
@@ -28,7 +29,7 @@ a {
 	border: 3px solid white;
 	font-size: 15px;
 	width: 80%;
-	color: white;
+	
 }
 
 .search-bar {
@@ -45,4 +46,10 @@ a {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+button{
+    background-color: transparent;
+    border: 3px solid white;
+    padding: 2px;
 }
