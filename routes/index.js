@@ -40,7 +40,7 @@ router.get("/", async (_, res) => {
 
 	res.render("pages/index", {
 		title: "SpaceTime",
-		stylesheet: "css/style.css",
+		stylesheet: "css/index.css",
 		rocketData: JSON.stringify(rocketData),
 	});
 });
