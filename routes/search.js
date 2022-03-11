@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
 
 	const rocketData = await getData(null, `search=${query}`);
 
-	if (!rocketData) return res.redirect("/error");
+	if (!rocketData) return res.redirect("/no_results_found");
 
 	res.render("pages/search", {
 		title: "SpaceTime",
@@ -20,7 +20,7 @@ router.post("/next", async (req, res) => {
 
 	const rocketData = await getData(next);
 
-	if (!rocketData) return res.redirect("/error");
+	if (!rocketData) return res.redirect("/no_results_found");
 
 	res.render("pages/search", {
 		title: "SpaceTime",
@@ -33,7 +33,7 @@ router.post("/previous", async (req, res) => {
 
 	const rocketData = await getData(previous);
 
-	if (!rocketData) return res.redirect("/error");
+	if (!rocketData) return res.redirect("/no_results_found");
 
 	res.render("pages/search", {
 		title: "SpaceTime",

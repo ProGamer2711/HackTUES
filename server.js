@@ -20,7 +20,11 @@ try {
 		app.use(route.path, route.router);
 	});
 
-	app.all("*", (_, res) => res.redirect("/"));
+	app.all("*", (_, res) =>
+		res.render("pages/pageNotFound", {
+			title: "SpaceTime",
+		})
+	);
 } catch (err) {
 	console.log(err);
 }
