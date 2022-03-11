@@ -1,0 +1,20 @@
+<% JSON.parse(rocketData).forEach(data => { %>
+<hr />
+<div class="rocket">
+	<h3><%= data.name %></h3>
+
+	<img
+		src="<%= data.image %>"
+		alt="Sorry, there wasn't an available image for this rocket"
+		width="100px"
+		height="auto"
+	/>
+
+	<p>Launch Service Provider: <%= data.lsp %></p>
+	<p>Date Of Launch: <%= data.date %></p>
+	<p>Location: <%= data.location %></p>
+
+	<p>Status: <%= data.status %></p>
+	<p>Status Description: <%= data.statusDescription %></p>
+</div>
+<% }) %>
