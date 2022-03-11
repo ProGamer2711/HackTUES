@@ -7,11 +7,10 @@ router.post("/", async (req, res) => {
 
 	const rocketData = await getData(null, `search=${query}`);
 
-	if (!rocketData) return res.send("No results found");
+	if (!rocketData) return res.redirect("/error");
 
 	res.render("pages/search", {
 		title: "SpaceTime",
-		stylesheet: "css/style.css",
 		rocketData: JSON.stringify(rocketData),
 	});
 });
@@ -21,11 +20,10 @@ router.post("/next", async (req, res) => {
 
 	const rocketData = await getData(next);
 
-	if (!rocketData) return res.send("No results found");
+	if (!rocketData) return res.redirect("/error");
 
 	res.render("pages/search", {
 		title: "SpaceTime",
-		stylesheet: "css/style.css",
 		rocketData: JSON.stringify(rocketData),
 	});
 });
@@ -35,9 +33,10 @@ router.post("/previous", async (req, res) => {
 
 	const rocketData = await getData(previous);
 
+	if (!rocketData) return res.redirect("/error");
+
 	res.render("pages/search", {
 		title: "SpaceTime",
-		stylesheet: "css/style.css",
 		rocketData: JSON.stringify(rocketData),
 	});
 });

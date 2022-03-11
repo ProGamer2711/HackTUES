@@ -35,7 +35,7 @@ module.exports = async function getData(url, params) {
 			date: formattedDate,
 			lsp: result.lsp_name,
 			location: result.location,
-			image: result.image,
+			image: result.image || "/assets/imageNotFound.png",
 			status: result.status.name,
 			statusDescription: result.status.description,
 		});
