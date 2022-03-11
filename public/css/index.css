@@ -10,3 +10,11 @@
 body {
   background-image: url("/assets/bg.jpg");
 }
+
+#query {
+     background-color:transparent;
+     border:3px solid white;
+     font-size:15px;
+     width:80%;
+    color: white;
+}
