@@ -29,8 +29,8 @@ module.exports = async function getData(url, params) {
 			].join(":");
 
 		rocketData.push({
-			previous: result.previous,
-			next: result.next,
+			previous: json.previous,
+			next: json.next,
 			name: result.name,
 			date: formattedDate,
 			lsp: result.lsp_name,

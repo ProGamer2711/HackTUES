@@ -1,34 +1,5 @@
-<%- include("../partials/header"); %> <%- include("../partials/searchBar"); %>
-<%- include("../partials/rockets"); %> <% if
-(JSON.parse(rocketData)[0].previous) { %>
-<form action="/search/previous" method="POST">
-	<input
-		type="text"
-		style="display: none"
-		id="previous-url"
-		name="previous-url"
-	/>
-
-	<button>Previous page</button>
-</form>
-<% } %> <% if (JSON.parse(rocketData)[0].next) { %>
-<form action="/search/next" method="POST">
-	<input type="text" style="display: none" id="next-url" name="next-url" />
-
-	<button>Next page</button>
-</form>
-<% } %>
-
-<script>
-	<% if (JSON.parse(rocketData)[0].previous) { %>
-	document.getElementById("previous-url").value =
-		"<%= JSON.parse(rocketData)[0].previous %>";
-	<% } %>
-
-	<% if (JSON.parse(rocketData)[0].next) { %>
-	document.getElementById("next-url").value =
-		"<%= JSON.parse(rocketData)[0].next %>";
-	<% } %>
-</script>
-
-<%- include("../partials/footer"); %>
+<%- include("../partials/header"); %>
+<a href="/"><h1>It's SpaceTime!</h1></a>
+<%- include("../partials/searchBar"); %> <%- include("../partials/rockets"); %>
+<%- include("../partials/pageNavButtons"); %> <%- include("../partials/footer");
+%>

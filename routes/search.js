@@ -14,11 +14,9 @@ router.post("/", async (req, res) => {
 		stylesheet: "css/style.css",
 		rocketData: JSON.stringify(rocketData),
 	});
-
-	console.log(rocketData[0]);
 });
 
-router.post("/search/next", async (req, res) => {
+router.post("/next", async (req, res) => {
 	const next = req.body["next-url"];
 
 	const rocketData = await getData(next);
@@ -32,12 +30,10 @@ router.post("/search/next", async (req, res) => {
 	});
 });
 
-router.post("/search/previous", async (req, res) => {
+router.post("/previous", async (req, res) => {
 	const previous = req.body["previous-url"];
 
 	const rocketData = await getData(previous);
-
-	if (!rocketData) return res.send("No results found");
 
 	res.render("pages/search", {
 		title: "SpaceTime",
