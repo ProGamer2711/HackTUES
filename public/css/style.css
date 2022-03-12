@@ -42,7 +42,7 @@ button {
 	font-size: 20px;
 	text-align: center;
 	border: 3px solid white;
-	margin-top: 3px;
+	margin-top: 5px;
 	padding: 2px;
 	cursor: pointer;
 }
@@ -50,13 +50,14 @@ button {
 button:hover {
 	background: linear-gradient(rgb(173, 255, 237), rgb(131, 141, 247));
 	background-clip: text;
-	-webkit-background-clip:text;
+	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: linear-gradient(rgb(173, 255, 237), rgb(131, 141, 247));
 	border-color: linear-gradient(rgb(173, 255, 237), rgb(131, 141, 247));
 }
 
 .rocket {
+	padding: 20px;
 	border-top: 1px solid white;
 	display: flex;
 	height: 500px;
@@ -79,6 +80,7 @@ button:hover {
 }
 
 .event {
+	padding: 20px;
 	border-top: 1px solid white;
 	display: flex;
 	height: 600px;
@@ -86,6 +88,7 @@ button:hover {
 
 .event-text {
 	flex: 0 0 35%;
+	overflow-y: auto;
 }
 
 .event-image {
@@ -105,4 +108,31 @@ button:hover {
 
 .link:hover {
 	text-decoration: underline;
+	cursor: pointer;
+}
+
+.header {
+	margin-bottom: 80px;
+}
+
+.button-nav-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.left,
+.right {
+	flex: 0 0 30%;
+}
+
+.right {
+	text-align: right;
+}
+
+.nav-btn {
+	width: 200px;
+}
+
+.search-bar {
+	text-align: center;
 }

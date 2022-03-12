@@ -31,6 +31,11 @@ async function getLaunchData(url, params) {
 			].join(":");
 
 		rocketData.push({
+			count: json.count,
+			currentUrl: encodeURIComponent(
+				url ||
+					`https://lldev.thespacedevs.com/2.2.0/launch/?mode=list&limit=3&${params}&format=json`
+			),
 			previous: encodeURIComponent(json.previous),
 			next: encodeURIComponent(json.next),
 			name: result.name,
@@ -56,8 +61,6 @@ async function getEventData(url, params) {
 
 	let json = await body.data;
 
-	console.log(json);
-
 	let eventData = [];
 
 	if (json.results.length === 0) return false;
@@ -79,6 +82,11 @@ async function getEventData(url, params) {
 			].join(":");
 
 		eventData.push({
+			count: json.count,
+			currentUrl: encodeURIComponent(
+				url ||
+					`https://lldev.thespacedevs.com/2.2.0/event/?mode=list&limit=3&${params}&format=json`
+			),
 			previous: encodeURIComponent(json.previous),
 			next: encodeURIComponent(json.next),
 			name: result.name,
@@ -93,8 +101,6 @@ async function getEventData(url, params) {
 			image: result.feature_image || "/assets/imageNotFound.png",
 		});
 	});
-
-	console.log(eventData);
 
 	return eventData;
 }

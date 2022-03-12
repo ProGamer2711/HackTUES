@@ -9,15 +9,24 @@
 
 		<p>Description: <%= data.description %></p>
 
-		<p>Launches connected with event: 
+		<p>Launches associated with event: 
 		<% if (data.launches.length > 0) { %>
 		<ul>
-			<% data.launches.forEach(launch => { %>
-			<li><%= launch %></li>
+			<% data.launches.forEach((launch, i) => { %>
+			<form action="/launches" method="POST">
+				<input type="text" style="display: none;" name="query" value="<%= launch %>">
+				<li id="link<%= i %>" class="link"><%= launch %></li>
+			</form>
+			<script>
+				document.querySelector("#link<%= i %>").addEventListener("click", function(e) {
+					e.preventDefault();
+					document.forms[<%= i %> + 1].submit();
+				});
+			</script>
 			<% }) %>
 		</ul>
 		<% } else { %>
-			No launches connected with event
+			No launches associated with event
 		<% } %>
 		</p> 
 		
@@ -27,7 +36,7 @@
 			<% if (data.newsUrl) { %>
 			<li><a href="<%= data.newsUrl %>" class="link">News</a></li>
 			<% } %> <% if (data.videoUrl) { %>
-			<li><a href="<%= data.videoUrl %>" class="link">Video</a></li>
+			<li><a href="<%= data.videoUrl %>" class="link">Video <% if (data.live) { %> (Streamed) <% } %></a></li>
 			<% } %>
 		</ul>
 		<% } %>

@@ -1,30 +1,89 @@
-<% if (JSON.parse(data)[0].previous !== "null") { %>
-<form action="/<%= path %>/previous" method="POST">
-	<input
-		type="text"
-		style="display: none"
-		id="previous-url"
-		name="previous-url"
-	/>
+<div class="button-nav-container">
+	<div class="left">
+		<% if (JSON.parse(data)[0].previous !== "null") { %>
+		<form action="<%= path %>/previous" method="POST">
+			<input
+				type="text"
+				style="display: none"
+				id="previous-url"
+				name="previous-url"
+			/>
+			<input
+				type="text"
+				style="display: none"
+				name="query"
+				class="query-input"
+			/>
 
-	<button>Previous page</button>
-</form>
-<% } %> <% if (JSON.parse(data)[0].next !== "null") { %>
-<form action="/<%= path %>/next" method="POST">
-	<input type="text" style="display: none" id="next-url" name="next-url" />
+			<button class="nav-btn">Previous page</button>
+		</form>
+		<% } %> <% if (JSON.parse(data)[0].next !== "null") { %>
+		<form action="<%= path %>/next" method="POST">
+			<input type="text" style="display: none" id="next-url" name="next-url" />
+			<input
+				type="text"
+				style="display: none"
+				name="query"
+				class="query-input"
+			/>
 
-	<button>Next page</button>
-</form>
-<% } %>
+			<button class="nav-btn">Next page</button>
+		</form>
+		<% } %>
+	</div>
+	<div class="right">
+		<% if (JSON.parse(data)[0].previous !== "null") { %>
+		<form action="<%= path %>/first" method="POST">
+			<input
+				type="text"
+				style="display: none"
+				id="first-url"
+				name="first-url"
+			/>
+			<input
+				type="text"
+				style="display: none"
+				name="query"
+				class="query-input"
+			/>
+
+			<button class="nav-btn">First page</button>
+		</form>
+		<% } %> <% if (JSON.parse(data)[0].next !== "null") { %>
+		<form action="<%= path %>/last" method="POST">
+			<input type="text" style="display: none" id="last-url" name="last-url" />
+			<input type="text" style="display: none" id="count" name="count" />
+			<input
+				type="text"
+				style="display: none"
+				name="query"
+				class="query-input"
+			/>
+
+			<button class="nav-btn">Last page</button>
+		</form>
+		<% } %>
+	</div>
+</div>
 
 <script>
 	<% if (JSON.parse(data)[0].previous !== "null") { %>
-	document.getElementById("previous-url").value =
-	        "<%= JSON.parse(data)[0].previous %>";
+	document.getElementById("previous-url").value = "<%= JSON.parse(data)[0].previous %>";
 	<% } %>
 
 	<% if (JSON.parse(data)[0].next !== "null") { %>
-	document.getElementById("next-url").value =
-	        "<%= JSON.parse(data)[0].next %>";
+	document.getElementById("next-url").value = "<%= JSON.parse(data)[0].next %>";
 	<% } %>
+
+	<% if (JSON.parse(data)[0].previous !== "null") { %>
+	document.getElementById("first-url").value = "<%= JSON.parse(data)[0].previous %>";
+	<% } %>
+
+	<% if (JSON.parse(data)[0].next !== "null") { %>
+	document.getElementById("count").value = "<%= JSON.parse(data)[0].count %>";
+	document.getElementById("last-url").value = "<%= JSON.parse(data)[0].next %>";
+	<% } %>
+
+	document.querySelectorAll(".query-input").forEach(el =>
+	        el.value = "<%= query %>");
 </script>
