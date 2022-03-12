@@ -2,8 +2,10 @@ const fetch = require("axios");
 
 module.exports = async function getData(url, params) {
 	let body = await fetch(
-		url ||
-			`https://lldev.thespacedevs.com/2.2.0/launch/?mode=list&limit=3&${params}`
+		decodeURIComponent(
+			url ||
+				`https://lldev.thespacedevs.com/2.2.0/launch/?mode=list&limit=3&${params}&format=json`
+		)
 	);
 
 	let json = await body.data;
@@ -29,8 +31,8 @@ module.exports = async function getData(url, params) {
 			].join(":");
 
 		rocketData.push({
-			previous: json.previous,
-			next: json.next,
+			previous: encodeURIComponent(json.previous),
+			next: encodeURIComponent(json.next),
 			name: result.name,
 			date: formattedDate,
 			lsp: result.lsp_name,
