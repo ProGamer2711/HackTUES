@@ -11,8 +11,11 @@ body {
 
 h1 {
 	font-size: 50px;
-	color: midnightblue;
 	margin: 5% 0% 0% 35%;
+	background: -webkit-linear-gradient(rgb(173,255,237),rgb(131,141,247));
+	background-clip:text;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 a {
@@ -39,10 +42,29 @@ a {
 
 button {
 	background-color: transparent;
+	background-color:transparent;
+	font-family:"Audiowide",sans-serif;
+	font-size:20px;
+	text-align:center;
 	border: 3px solid white;
 	margin-top: 3px;
 	padding: 2px;
 	cursor: pointer;
+	cursor:pointer;
+}
+
+button:hover{
+	background: -webkit-linear-gradient(rgb(40, 0, 133),rgb(56, 69, 255));
+	background-clip:text;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+button:active{
+	background-color: transparent;
+	color: rgb(69,69,71);
+	border-color: rgb(69,69,71);
 }
 
 .rocket {
@@ -94,4 +116,8 @@ button {
 
 .link:hover {
 	text-decoration: underline;
+}
+
+.header{
+	background-image: url("/assets/Web_page_header.png");
 }
