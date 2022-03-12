@@ -19,8 +19,6 @@ router.post("/", async (req, res) => {
 router.post("/next", async (req, res) => {
 	const next = req.body["next-url"];
 
-	console.log(next);
-
 	const eventData = await getEventData(next);
 
 	if (!eventData) return res.redirect("/no_results_found");

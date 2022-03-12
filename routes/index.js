@@ -45,8 +45,6 @@ router.post("/previous", async (req, res) => {
 router.post("/first", async (req, res) => {
 	const first = req.body["first-url"];
 
-	console.log(decodeURIComponent(first).replace(/offset=.*/, ""));
-
 	const rocketData = await getLaunchData(
 		decodeURIComponent(first).replace(/offset=.*/, "")
 	);
@@ -62,12 +60,6 @@ router.post("/first", async (req, res) => {
 
 router.post("/last", async (req, res) => {
 	const last = req.body["last-url"];
-	console.log(
-		decodeURIComponent(last).replace(
-			/offset=.*/,
-			`offset=${parseInt(req.body.count) - 3}`
-		)
-	);
 
 	const rocketData = await getLaunchData(
 		decodeURIComponent(last).replace(

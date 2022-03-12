@@ -1,28 +1,30 @@
-<% JSON.parse(data).forEach(data => { %>
+<% let i = 0; %>
+<% JSON.parse(data).forEach(event => { %>
 <div class="event">
 	<div class="event-text">
-		<h3><%= data.name %></h3>
+		<h3><%= event.name %></h3>
 
-		<p>Type Of Event: <%= data.type %></p>
-		<p>Date Of Event: <%= data.date %></p>
-		<p>Location: <%= data.location %></p>
+		<p>Type Of Event: <%= event.type %></p>
+		<p>Date Of Event: <%= event.date %></p>
+		<p>Location: <%= event.location %></p>
 
-		<p>Description: <%= data.description %></p>
+		<p>Description: <%= event.description %></p>
 
 		<p>Launches associated with event: 
-		<% if (data.launches.length > 0) { %>
+		<% if (event.launches.length > 0) { %>
 		<ul>
-			<% data.launches.forEach((launch, i) => { %>
-			<form action="/launches" method="POST">
+			<% event.launches.forEach((launch) => { %>
+			<form action="/launches" id="form<%= i %>" method="POST">
 				<input type="text" style="display: none;" name="query" value="<%= launch %>">
 				<li id="link<%= i %>" class="link"><%= launch %></li>
 			</form>
 			<script>
 				document.querySelector("#link<%= i %>").addEventListener("click", function(e) {
 					e.preventDefault();
-					document.forms[<%= i %> + 1].submit();
+					document.querySelector("#form<%= i %>").submit();
 				});
 			</script>
+			<% i++; %>
 			<% }) %>
 		</ul>
 		<% } else { %>
@@ -30,13 +32,13 @@
 		<% } %>
 		</p> 
 		
-		<% if (data.newsUrl || data.videoUrl) { %>
+		<% if (event.newsUrl || event.videoUrl) { %>
 		<p>Links:</p>
 		<ul>
-			<% if (data.newsUrl) { %>
-			<li><a href="<%= data.newsUrl %>" class="link">News</a></li>
-			<% } %> <% if (data.videoUrl) { %>
-			<li><a href="<%= data.videoUrl %>" class="link">Video <% if (data.live) { %> (Streamed) <% } %></a></li>
+			<% if (event.newsUrl) { %>
+			<li><a href="<%= event.newsUrl %>" class="link">News</a></li>
+			<% } %> <% if (event.videoUrl) { %>
+			<li><a href="<%= event.videoUrl %>" class="link">Video <% if (event.live) { %> (Streamed) <% } %></a></li>
 			<% } %>
 		</ul>
 		<% } %>
@@ -45,7 +47,7 @@
 		<div
 			class="event-image-wrapper"
 			style="
-				background-image: url('<%= data.image %>');
+				background-image: url('<%= event.image %>');
 				background-size: cover;
 				background-position: center;
 			"
