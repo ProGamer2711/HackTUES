@@ -1,5 +1,5 @@
-<% if (JSON.parse(rocketData)[0].previous) { %>
-<form action="/search/previous" method="POST">
+<% if (JSON.parse(rocketData)[0].previous !== "null") { %>
+<form action="/<%= path %>/previous" method="POST">
 	<input
 		type="text"
 		style="display: none"
@@ -9,8 +9,8 @@
 
 	<button>Previous page</button>
 </form>
-<% } %> <% if (JSON.parse(rocketData)[0].next) { %>
-<form action="/search/next" method="POST">
+<% } %> <% if (JSON.parse(rocketData)[0].next !== "null") { %>
+<form action="/<%= path %>/next" method="POST">
 	<input type="text" style="display: none" id="next-url" name="next-url" />
 
 	<button>Next page</button>
@@ -18,12 +18,12 @@
 <% } %>
 
 <script>
-	<% if (JSON.parse(rocketData)[0].previous) { %>
+	<% if (JSON.parse(rocketData)[0].previous !== "null") { %>
 	document.getElementById("previous-url").value =
 	        "<%= JSON.parse(rocketData)[0].previous %>";
 	<% } %>
 
-	<% if (JSON.parse(rocketData)[0].next) { %>
+	<% if (JSON.parse(rocketData)[0].next !== "null") { %>
 	document.getElementById("next-url").value =
 	        "<%= JSON.parse(rocketData)[0].next %>";
 	<% } %>

@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
 
 	if (!rocketData) return res.redirect("/no_results_found");
 
-	res.render("pages/search", {
+	res.render("pages/launches", {
 		title: "SpaceTime",
 		rocketData: JSON.stringify(rocketData),
 	});
@@ -22,7 +22,7 @@ router.post("/next", async (req, res) => {
 
 	if (!rocketData) return res.redirect("/no_results_found");
 
-	res.render("pages/search", {
+	res.render("pages/launches", {
 		title: "SpaceTime",
 		rocketData: JSON.stringify(rocketData),
 	});
@@ -35,13 +35,13 @@ router.post("/previous", async (req, res) => {
 
 	if (!rocketData) return res.redirect("/no_results_found");
 
-	res.render("pages/search", {
+	res.render("pages/launches", {
 		title: "SpaceTime",
 		rocketData: JSON.stringify(rocketData),
 	});
 });
 
 module.exports = {
-	path: "/search",
+	path: "/launches",
 	router,
 };

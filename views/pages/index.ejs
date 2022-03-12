@@ -1,12 +1,16 @@
-<%- include("../partials/header"); %> <%- include("../partials/searchBar"); %>
+<%- include("../partials/header"); %>
+
+<a href="/"><h1>It's SpaceTime!</h1></a>
+
+<%- include("../partials/searchBar", { path: "launches" }); %>
 
 <p>
-    SpaceTime is a web page related to rocket launches all around the world if you
-    are interested in the launch of a certain rocket or in the activity of rocket
-    launches of a certain company you are free to search for that information in
-    our website.
+	SpaceTime is a web page related to rocket launches all around the world if you
+	are interested in the launch of a certain rocket or in the activity of rocket
+	launches of a certain company you are free to search for that information in
+	our website.
 </p>
 <strong>* note that this webpage was made during Hack TUES infinity</strong>
 
-<%- include("../partials/rockets"); %> <%-
-include("../partials/pageNavButtons"); %> <%- include("../partials/footer"); %>
+<%- include("../partials/rockets"); %> <%- include("../partials/pageNavButtons",
+{ path: "launches" }); %> <%- include("../partials/footer"); %>
