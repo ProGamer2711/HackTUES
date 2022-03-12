@@ -1,7 +1,10 @@
 <%- include("../partials/header"); %>
 
-<a href="/"><h1>It's SpaceTime!</h1></a>
+<div class="header">
+	<a href="/"><h1>It's SpaceTime!</h1></a>
 
-<%- include("../partials/searchBar", { path: "launches" }); %> <%-
-include("../partials/rockets"); %> <%- include("../partials/pageNavButtons", {
-path: "launches" }); %> <%- include("../partials/footer"); %>
+	<%- include("../partials/searchBar"); %>
+</div>
+
+<%- include("../partials/rockets"); %> <%- include("../partials/pageNavButtons",
+{ path: "launches" }); %> <%- include("../partials/footer"); %>
