@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
 
 	res.render("pages/launches", {
 		title: "SpaceTime",
-		rocketData: JSON.stringify(rocketData),
+		data: JSON.stringify(rocketData),
 	});
 });
 
@@ -24,7 +24,7 @@ router.post("/next", async (req, res) => {
 
 	res.render("pages/launches", {
 		title: "SpaceTime",
-		rocketData: JSON.stringify(rocketData),
+		data: JSON.stringify(rocketData),
 	});
 });
 
@@ -37,7 +37,7 @@ router.post("/previous", async (req, res) => {
 
 	res.render("pages/launches", {
 		title: "SpaceTime",
-		rocketData: JSON.stringify(rocketData),
+		data: JSON.stringify(rocketData),
 	});
 });
 

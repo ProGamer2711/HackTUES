@@ -67,10 +67,31 @@ button {
 	width: 100%;
 }
 
+.event {
+	border-top: 1px solid white;
+	display: flex;
+	height: 600px;
+}
+
+.event-text {
+	flex: 0 0 35%;
+}
+
+.event-image {
+	height: 600px;
+	max-width: 100%;
+	width: 100%;
+}
+
+.event-image-wrapper {
+	height: 600px;
+	width: 100%;
+}
+
 .center {
 	text-align: center;
 }
 
-.center:hover {
+.link:hover {
 	text-decoration: underline;
 }

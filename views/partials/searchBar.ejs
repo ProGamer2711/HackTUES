@@ -1,16 +1,30 @@
 <div class="search-bar">
-	<form action="/events" method="POST">
-		<form action="/launches" method="POST">
-			<input
-				type="text"
-				id="query"
-				placeholder="Enter the search query: "
-				name="query"
-				required
-			/>
+	<form action="/launches" method="POST">
+		<input
+			type="text"
+			id="query"
+			placeholder="Enter the search query: "
+			name="query"
+			required
+		/>
 
-			<a href="/launches"><button type="submit">Search launches</button></a>
-		</form>
-		<a href="/events"><button type="submit">Search events</button></a>
+		<button id="launches-btn">Search launches</button>
+		<button id="events-btn">Search event</button>
 	</form>
+
+	<script>
+		const form = document.forms[0];
+
+		document.querySelector("#launches-btn").addEventListener("click", (e) => {
+			e.preventDefault();
+			form.action = "/launches";
+			form.submit();
+		});
+
+		document.querySelector("#events-btn").addEventListener("click", (e) => {
+			e.preventDefault();
+			form.action = "/events";
+			form.submit();
+		});
+	</script>
 </div>

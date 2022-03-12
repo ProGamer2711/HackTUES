@@ -1,0 +1,46 @@
+<% JSON.parse(data).forEach(data => { %>
+<div class="event">
+	<div class="event-text">
+		<h3><%= data.name %></h3>
+
+		<p>Type Of Event: <%= data.type %></p>
+		<p>Date Of Event: <%= data.date %></p>
+		<p>Location: <%= data.location %></p>
+
+		<p>Description: <%= data.description %></p>
+
+		<p>Launches connected with event: 
+		<% if (data.launches.length > 0) { %>
+		<ul>
+			<% data.launches.forEach(launch => { %>
+			<li><%= launch %></li>
+			<% }) %>
+		</ul>
+		<% } else { %>
+			No launches connected with event
+		<% } %>
+		</p> 
+		
+		<% if (data.newsUrl || data.videoUrl) { %>
+		<p>Links:</p>
+		<ul>
+			<% if (data.newsUrl) { %>
+			<li><a href="<%= data.newsUrl %>" class="link">News</a></li>
+			<% } %> <% if (data.videoUrl) { %>
+			<li><a href="<%= data.videoUrl %>" class="link">Video</a></li>
+			<% } %>
+		</ul>
+		<% } %>
+	</div>
+	<div class="event-image">
+		<div
+			class="event-image-wrapper"
+			style="
+				background-image: url('<%= data.image %>');
+				background-size: cover;
+				background-position: center;
+			"
+		></div>
+	</div>
+</div>
+<% }) %>
