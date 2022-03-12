@@ -1,6 +1,6 @@
 const fetch = require("axios");
 
-module.exports = async function getData(url, params) {
+async function getLaunchData(url, params) {
 	let body = await fetch(
 		decodeURIComponent(
 			url ||
@@ -44,4 +44,8 @@ module.exports = async function getData(url, params) {
 	});
 
 	return rocketData;
-};
+}
+
+async function getEventData(url, params) {}
+
+module.exports = { getLaunchData, getEventData };

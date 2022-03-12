@@ -1,11 +1,11 @@
 const router = require("express").Router();
 
-const getData = require("../fetchFromAPI");
+const { getLaunchData } = require("../fetchFromAPI");
 
 router.post("/", async (req, res) => {
 	const query = req.body.query;
 
-	const rocketData = await getData(null, `search=${query}`);
+	const rocketData = await getLaunchData(null, `search=${query}`);
 
 	if (!rocketData) return res.redirect("/no_results_found");
 
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 router.post("/next", async (req, res) => {
 	const next = req.body["next-url"];
 
-	const rocketData = await getData(next);
+	const rocketData = await getLaunchData(next);
 
 	if (!rocketData) return res.redirect("/no_results_found");
 
@@ -31,7 +31,7 @@ router.post("/next", async (req, res) => {
 router.post("/previous", async (req, res) => {
 	const previous = req.body["previous-url"];
 
-	const rocketData = await getData(previous);
+	const rocketData = await getLaunchData(previous);
 
 	if (!rocketData) return res.redirect("/no_results_found");
 
