@@ -9,7 +9,7 @@ router.get("/", async (_, res) => {
 
 	res.render("pages/index", {
 		title: "SpaceTime",
-		rocketData: JSON.stringify(rocketData),
+		data: JSON.stringify(rocketData),
 	});
 });
 
