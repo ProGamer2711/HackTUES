@@ -3,19 +3,28 @@
 		<input
 			type="text"
 			id="query"
-			placeholder="Enter the name of the rocket or launch service provider: "
+			placeholder="Name of the rocket or launch service provider or event: "
 			name="query"
 			required
 			style="padding: 1.7mm 0mm 0.95mm 0mm"
 			value="<%= query %>"
 		/>
 
-		<button id="launches-btn">Search launches</button>
-		<button id="events-btn">Search events</button>
+		<div class="btns">
+			<button id="upcoming-btn">Search for upcoming launches</button>
+			<button id="launches-btn">Search for launches</button>
+			<button id="events-btn">Search for events</button>
+		</div>
 	</form>
 
 	<script>
 		const form = document.forms[0];
+
+		document.querySelector("#upcoming-btn").addEventListener("click", (e) => {
+			e.preventDefault();
+			form.action = "/";
+			form.submit();
+		});
 
 		document.querySelector("#launches-btn").addEventListener("click", (e) => {
 			e.preventDefault();
